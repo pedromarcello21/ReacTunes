@@ -1,0 +1,40 @@
+.navbar{
+    background-color: #212121;
+    text-align: center;
+    height:70px;
+    display:flex;
+    justify-content:left;
+    align-items: center; 
+    width:100vw;
+    position:fixed;
+    /* top:auto; */
+
+}
+#logo{
+    background-color: #212121;
+    color:#1DB954;
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+.navbar > a{
+    display: inline-block;
+    box-sizing: border-box;
+    width: auto;
+    /* margin: 0 6px 6px; */
+    background: #696969;
+    text-decoration: none;
+    font-size: min(10vw, 15px) ;
+    color: white;
+    padding:5px;
+    margin: 0 10px; /* Add margin to create space between links */
+    align-content:center;
+    border-radius: 5px;
+    font-size: large;
+
+
+}
+  
+a.active {
+    background: #1DB954;
+}

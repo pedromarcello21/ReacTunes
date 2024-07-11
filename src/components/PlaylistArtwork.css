@@ -1,0 +1,26 @@
+#artwork-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 100px auto;
+    width: 60vw;
+    height:40vh;
+    border: solid 5px #1DB954;
+    border-radius: 5px;
+    padding:20px;
+    color:white;
+    background-color: #212121;
+
+}
+
+#playlists{
+    width: 25vw;
+
+}
+
+
+input[type="file"] {
+/* background-color: black; */
+margin-left: 95px;
+}

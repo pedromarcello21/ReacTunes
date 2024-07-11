@@ -1,0 +1,59 @@
+/* h1{
+    padding-top: 70px;
+} */
+
+#create-playlist-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px auto;
+    width: 80vw;
+    height:50vh;
+    padding-top: 70px;
+}
+
+    /* Additional styles if needed */
+
+
+#rec-list{
+    display:flex;
+    flex-direction:row;
+    gap:10px;
+}
+
+.rec{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border: solid 3px #1DB954;
+    padding:10px;
+    border-radius: 50px;
+    width:15vw;
+    color:white;
+    background-color: #212121;
+    font-size:x-large;
+
+}
+
+input[type="text"]{
+    border-radius: 5px;
+    height:5vh;
+    width:20vw;
+    color:white;
+    background-color: #212121;
+    font-size:large;
+}
+
+button[type="submit"]{
+    border-radius: 50px;
+    width:20vw;
+    height:5vh;
+    background-color: #1DB954;
+    color:white;
+    font-size: larger;
+}
+
+button[type="submit"]:active {
+    transform: scale(0.90); /* Slightly reduce the size on click */
+}
