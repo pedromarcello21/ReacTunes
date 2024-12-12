@@ -1,20 +1,25 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 // import APIKit from "../spotify"
 import "./Playlists.css";
 import Click from "./Click"
 import Playback from './Playback';
+import SearchBar from './SearchBar';
 
 
 
 export default function Playlists({playlists, playback, setPlayback, handleDarkMode, darkMode}) {
 
 
+  const [searchPlaylist, setSearchPlaylist] = useState("")
+
+  const filteredPlaylists = playlists.filter(playlist => playlist.name.toLowerCase().includes(searchPlaylist.toLowerCase()))
 
 
   return (
     <div id = "main-page">
+      <SearchBar setSearchPlaylist = {setSearchPlaylist}/>
       <div id="library">
-          {playlists?.map(playlist => 
+          {filteredPlaylists?.map(playlist => 
           <div key = {playlist.id}className = "playlist" onClick = {() => setPlayback(playlist.id)}>
             {playlist.images && playlist.images.length > 0 ? <img src = {playlist.images[0].url} alt = {playlist.name}/> : <div>No Image</div>}
             <p>{playlist.name}</p>
@@ -39,6 +44,6 @@ export default function Playlists({playlists, playback, setPlayback, handleDarkM
 
       {/* <Click handleClick = {handleDarkMode}/> */}
 
-    </div>
-  )
+    </div> 
+  ) 
 }

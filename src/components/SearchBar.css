@@ -1,0 +1,11 @@
+.searchbar{
+    border-radius: 20px;
+    background-color: #212121;
+    color:white;
+    height:40px;
+}
+
+.searchbar::placeholder{
+    text-align: center;
+    color: white;
+}

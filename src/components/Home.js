@@ -5,7 +5,7 @@ import Login from './auth/Login';
 import Playlists from "./Playlists"
 // import Explore from "./Explore"
 import APIKit from "../spotify";
-import Recommendation from './Recommendation';
+// import Recommendation from '../../archive/Recommendation';
 import PlaylistArtwork from './PlaylistArtwork';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from './NavBar';
@@ -50,7 +50,10 @@ export default function Home() {
         useEffect(()=>{
           APIKit.get("me/playlists")
           .then(response => {
-            setPlaylists(response.data.items)
+            console.log(response.data.items)
+            const validPlaylists = response.data.items.filter( (playlist)  => playlist && playlist.images && playlist.images.length > 0);
+            setPlaylists(validPlaylists)
+            
           })
         }, [updatedPlaylist, updatedImage])
     
@@ -80,8 +83,8 @@ export default function Home() {
         <Router>
             <NavBar />
             <Routes>
-            <Route path='/' element={<Playlists playlists = {playlists} setPlaylists = {setPlaylists} playback = {playback} setPlayback = {setPlayback} />} />
-            <Route path='/recommendation' element={<Recommendation playlists= {playlists} setPlaylists = {setPlaylists} updatedPlaylist = {updatedPlaylist} setUpdatedPlaylist = {setUpdatedPlaylist}/>} />
+            {<Route path='/' element={<Playlists playlists = {playlists} setPlaylists = {setPlaylists} playback = {playback} setPlayback = {setPlayback} />} /> }
+            {/* <Route path='/recommendation' element={<Recommendation playlists= {playlists} setPlaylists = {setPlaylists} updatedPlaylist = {updatedPlaylist} setUpdatedPlaylist = {setUpdatedPlaylist}/>} /> */}
             <Route path = '/album-artwork' element ={<PlaylistArtwork playlists = {playlists} setPlaylists={setPlaylists} updatedPlaylist = {updatedPlaylist} setUpdatedPlaylist = {setUpdatedPlaylist} base64Image={base64Image} setBase64Image={setBase64Image} setUpdatedImage = {setUpdatedImage}/>}/>
             <Route path='*' element={<Error />} />
             </Routes>

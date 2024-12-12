@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import APIKit from "../spotify"
+import APIKit from "../src/spotify"
 import "./Explore.css"
 
 
